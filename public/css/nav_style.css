@@ -1,0 +1,204 @@
+
+
+/* Lukas Atzmüller */
+/* NEU: importiert alles aus der style.css 
+macht root verfügbar*/
+@import url("style.css");
+
+
+/* Nav bar style */
+
+.navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: var(--gojo-blue);
+    padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+    /* Schatten für Schwebe-effekt */
+    box-shadow: 0 4px 10px var(--zangetsu-abyss); 
+    z-index: 999;
+    
+    /*  die Navbar über dem Inhalt liegt */
+
+}
+
+
+/* Einmal für alle Buttons */
+.nav-button, button  {
+    display: inline-flex;   
+        align-items: center;
+        justify-content: center;
+
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 0.6rem 1.2rem;
+
+    border-radius:  12px; 
+        transition: all 0.3s ease;
+        font-family: inherit;
+
+        text-decoration: none;
+}
+
+/* Nur die Unterschiede definieren */
+.nav-button {background: var(--ichigo-soul); 
+    color: var(--bg-card); 
+    margin-right: 10px;
+}
+
+.nav-button:hover {
+    background: var(--byakuya-mist);
+    transform: translateY(-2px);
+}
+
+.delete-button { 
+   background: var(--sukuna-curse); 
+    color:  var(--bg-card); 
+ }
+
+
+.nav-search-container {
+   display: flex;
+    align-items: center;
+    gap: 10px;          /*abstand zu 'Suche'*/
+        margin-left: auto;
+        margin-right: auto;
+}
+
+.nav-search-input {
+    appearance: none;
+
+    padding: 8px 15px;
+    border-radius: 25px;
+    border: 1px solid var(--border-color);
+    background: var(--kakashi-shadow);
+
+    color:  var(--bg-card); 
+    width: 250px;
+
+    outline: none;
+}
+
+
+.search-dropdown {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 300px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+
+    box-shadow: 0 10px 25px var(--ywhach-coat);
+    z-index: 1000;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+
+.search-item {
+    padding: 12px;
+    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+    color: var(--text-main);
+}
+
+.search-item:hover {
+    background: var(--gojo-blue);
+    color: var(--bg-card)
+}
+
+
+.dashboard-overlay, .animation-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: var(--zangetsu-abyss); /* Zangetsu mit Transparenz */
+    /* backdrop-filter: blur(12px); */
+
+    z-index: 2000;
+    display: flex; 
+
+    justify-content: center; 
+    align-items: center;
+}
+
+
+
+
+
+.dashboard-card {
+    background: var(--bg-card);
+    border-radius: 12px;
+    width: 90%;
+    max-width: 1000px;
+    max-height: 85vh;
+    overflow-y: auto;
+
+    padding: 30px;
+    position: relative;
+    box-shadow: 0 20px 50px var(--zangetsu-abyss);
+}
+
+
+.dash-body {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+
+
+.close-dash-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    font-size: 2rem;
+    color: var(--kakashi-shadow);
+}
+
+
+/* NEU: Utils */
+
+
+@keyframes fadeInZoom {
+    0% { transform: scale(0.9); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.animation-content { 
+    animation: fadeInZoom 0.8s ease-out; 
+    color: var(--bg-card);
+ }
+
+ 
+.hidden { 
+    display: none !important; 
+}
+
+
+
+@media (max-width: 600px) {
+    .navbar { 
+        height: auto; 
+        flex-direction: column; 
+        padding: 15px; 
+        gap: 10px; 
+    }
+    #global-search-input { 
+        width: 100%; 
+    }
+    .nav-search-container { 
+        margin-left: 0;
+         width: 100%; 
+        }
+}
+
+

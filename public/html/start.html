@@ -1,0 +1,146 @@
+
+<!-- Lukas Atzmüller -->
+
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kursverwaltungssystem</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/nav_style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <button type="button" id="trigger-dashboard" class="nav-button">System Dashboard</button>
+       
+
+        <div class="nav-search-container">
+            <label for="global-search-input">Suche</label>
+            <input type="text" id="global-search-input" placehoholder="Suchen...">
+            <div id="search-results-dropdown" class="search-dropdown hidden"></div>
+
+        </div>
+    </nav>
+
+    <h1>Kursverwaltung</h1>
+
+<hr>
+
+    <section>
+        <h2>Neue Schüler</h2>
+        <form id="create-schueler-form">
+            <label for="schueler-vorname"> Vorname: </label>
+            <input type="text" id="schueler-vorname" placeholder="Lasmiranda" maxlength="20" required>
+
+            <label for="schueler-nachname"> Nachname: </label>
+            <input type="text" id="schueler-nachname" placeholder="Densivillia" maxlength="30" required>
+<!-- NEU: Autocomplete off -->
+            <label for="sv-nummer"> SV-Nummer </label>
+            <input type="text" id="sv-nummer" autocomplete="off" placeholder="12345678" minlength="8" maxlength="8" required>
+            
+            <button type="submit">Schüler hinzufügen</button>
+        </form>
+    </section>
+
+
+<hr>
+
+ <section>
+        <h2>Kurs hinzufügen</h2>
+        <form id="create-kurs-form">
+            <label for="kurs-name">Kursname: </label>
+            <input type="text" id="kurs-name" placeholder="CS_101" required>
+
+            <label for="kurs-lehrer">Lehrer: </label>
+            <input type="text" id="kurs-lehrer" placeholder="Name" required>
+
+            <button type="submit">Kurs erstellen</button>
+        </form>
+    </section>
+
+ <hr>
+
+   
+    <div class="main-grid">
+        <section class="list-container">
+            <h2>Alle Schüler</h2>
+            <ul id="schueler-liste" class="data-list"></ul>
+        </section>
+
+        <section class="list-container">
+            <h2>Alle Kurse</h2>
+            <ul id="kurs-list" class="data-list"></ul>
+        </section>
+    </div>
+
+
+    <hr>
+
+
+    <section id="details-view">
+        <h2>Kurs-Details & Teilnehmer</h2>
+        <div id="kurs-teilnehmer-info">Wähle einen Kurs aus der Liste oben aus.</div>
+        <ul id="kurs-teilnehmer-list" class="data-list"></ul>
+    </section>
+
+    <hr>
+
+   
+
+
+    <section>
+        <h2>Einschreiben & Entfernen</h2>
+        <form id="enroll-form">
+            <label for="enroll-schueler-id">Schüler wählen:</label>
+        <input type="text" id="enroll-schueler-input" list="schueler-options" placeholder="Name suchen..." required>
+<!-- NEU: dataset für autofill möglichkeit -->
+            <datalist id="schueler-options"></datalist>
+            <input type="hidden" id="enroll-schueler-id">
+
+        <label for="enroll-kurs-id">Kurs wählen:</label>
+        <input type="text" id="enroll-kurs-input" list="kurs-options" placeholder="Kurs suchen..." required>
+
+            <datalist id="kurs-options"></datalist>
+            <input type="hidden" id="enroll-kurs-id">
+
+
+            <div class="form-actions">
+                <button type="submit" id="btn-enroll" class="success-btn">Einschreiben</button>
+                <button type="button" id="btn-unenroll" class="danger-btn">Aus Kurs entfernen</button>
+            </div>
+
+            <p id="enroll-message"></p>
+        </form>
+
+    </section>
+
+
+    <footer>
+        <p>&copy; 2026 Kursverwaltung | by Lukas Atzmüller</p>
+    
+    </footer>
+
+    <div id="dashboard-overlay" class="dashboard-overlay hidden">
+        <div class="dashboard-card">
+            <button type="button" id="close-dash" class="close-dash-btn">&times;</button>
+            <div class="dash-header"></div>
+            <div class="dash-body">
+                <div class="dash-column">
+                    <h4>Schüler</h4>
+                    <ul id="dash-student-list"></ul>
+                </div>
+                
+                <div class="dash-column">
+                    <h4>Kurse & Lehrer</h4>
+                    <div id="dash-course-grid"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="../javascript/main.js"></script>
+    <script type="module" src="../javascript/animation.js"></script>
+</body>
+</html>

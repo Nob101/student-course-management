@@ -1,0 +1,50 @@
+# 
+# Healthcheck dient zur Kontrolle... ob die DB wirklich bereit ist
+# Express -> Mongo Web oberfläche Aufrufen
+# Volume speichert dauerhaft (Directorie) auch wenn container stoppt
+
+# node.js server als container => Express server Logik
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: DAO_Teil_vier
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    healthcheck:
+      test: ["CMD-SHELL", "mongosh --eval \"db.adminCommand('ping')\" "]
+      interval: 10s
+      timeout: 5s
+      retries: 4
+
+# build -> Docker sucht nach "Dockerfile"
+# condition -> wartet bis healthcheck erfolgreich war
+  app:
+    build: .
+    container_name: node_app
+    ports:
+     - "3000:3000"
+    volumes:
+      - .:/usr/src/app                # Live-Sync (Dadurch 'sieht ' der Container meine lokalen Änderungen und reagiert darauf) 
+      - /usr/src/app/node_modules     # Verhindert das Überschreiben durch lokale Module
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/kursverwaltung
+    depends_on:
+      mongodb:
+        condition: service_healthy
+
+# volumes
+volumes:
+  mongodb_data:
+
+
+# docker volume inspect mongodb_data              -> Mountpoint zeigt wo die Daten liegen und vereinfacht das Backup
+# docker volume inspect dao_teil_4_mongodb_data   -> Zeigt wo docker die Daten auf Windows-System 'versteckt'    => Mountpoint": "/var/lib/docker/volumes/dao_teil_4_mongodb_data/_data",
+
+
+# http://localhost:3000/html/start.html
+
+
+

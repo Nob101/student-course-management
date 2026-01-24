@@ -1,0 +1,26 @@
+
+# Hier wird verhindert das sensible oder unnötige Daten oder auch Datenmüll in
+# das Docker image kopiert wird.
+# Performant, optimiert den Build und die Sicherheit
+
+
+
+# Abhängigkeiten und Logs
+node_modules
+npm-debug.log*
+*.log
+
+
+
+# Versionsverwaltung / Umgebungsvariable
+.git
+.env
+
+# Docker braucht diese files um container zu bauen, aber die App braucht die eigene 'Bauanleitung' nicht mehr
+Dockerfile 
+docker-compose.yml
+.dockerignore
+
+# Betriebssystem-Metadaten
+.DS_Store
+Thumbs.db

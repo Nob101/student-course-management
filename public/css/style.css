@@ -1,0 +1,288 @@
+
+/* Lukas Atzmüller */
+/* NEU: Root inklusive rem abstände */
+:root{
+    /* Font Sizes - Basis 16 !!! */
+    --fs-sm: 0.875rem;
+    --fs-base: 1rem;
+    --fs-md: 1.25rem;
+    --fs-lg: 1.5rem;
+    --fs-xl: 2.25rem;
+
+        /* Abstände */
+        --space-xs: 0.5rem;
+        --space-sm: 1rem;
+        --space-md: 1.5rem;
+        --space-lg: 3rem;
+
+    /* Neutrale Farben */
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --border-color: #e9ecef;
+            --text-main: #040404;
+
+
+/* Primär farben lol */
+
+
+        --gojo-blue: linear-gradient(135deg, #066cd8 20%,#007bff 25%, #63a8f3 30%);
+        --toshiro-ice: #0a57a8;
+        --kakashi-shadow: #6c757d;
+        --zangetsu-abyss: #000033;
+        --gon-hunter: #28a745;
+        --sukuna-curse: #dc3545;
+        --itadori-flash: linear-gradient(135deg, #f18989 0%, #e02828 20%, #3a0303 80%);   /*black-red Flash*/
+        --shiro-pure: #eae8e8e9;
+        --ywhach-coat: #040404;
+        --ichigo-soul: #f3873f;
+        --byakuya-mist: #710631de;
+
+
+                --radius-md: 12px;
+                --shadow-sm: 0 4px 6px -1px #0000001a;
+
+}
+
+
+/* 
+NEU: Dark mode  ... nochmal neu
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-body: #0b0e14; 
+        --bg-card: #161b22; 
+
+        --border-color: #30363d;
+        --text-main: #f0f6fc; 
+        --kakashi-shadow: #8b949e;
+    }
+} */
+
+/* Haupt */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    padding: var(--space-md);
+    padding-top: 5rem;      /*platz für NAv bar*/
+
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    line-height: 1.6;
+    transition: background-color 0.3s ease;
+}
+
+
+/*NEU:  --- Layout der Container --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+h1 {
+    color: var(--gojo-blue);
+    text-align: center;
+    margin-bottom: var(--space-md);
+    border-bottom: 3px solid var(--gojo-blue);
+    padding-bottom: var(--space-xs);
+    font-size: var(--fs-xl);
+}
+
+
+h2 {
+   color: var(--kakashi-shadow);
+
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: var(--space-xs);
+
+    margin-top: var(--space-lg);
+    font-size: var(--fs-lg);
+}
+
+
+/* NEU:  */
+section {
+    background-color: var(--shiro-pure);
+    padding: var(--space-md);
+    margin-bottom: var(--space-md);
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow-md);  /* Leichter Schatten */
+    border: 1px solid var(--border-color); 
+}
+
+/* NEU: data-list */
+
+.data-list {
+    list-style: none;
+    display: grid;
+
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-sm);
+}
+
+.data-item {
+    /* Flexbox für Text links und Button rechts */
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    /* NEU: var ändern!! */
+    background: var(--bg-body);
+   padding: var(--space-sm);
+
+    border-radius: var(--radius-md);
+    border-left: 5px solid var(--gojo-blue); 
+
+    transition: all 0.3s ease;
+
+    
+}
+
+.data-item:hover {
+   background: var(--itadori-flash);
+
+    color: var(--shiro-pure);
+    transform: translateX(5px);
+}
+
+
+
+
+/* NEU: Form Section */
+
+form {
+    display: flex;
+    flex-wrap: wrap;    /* Erlaubt Umbruch auf kleinen Bildschirmen */
+    gap: var(--space-sm);   /* Abstand zwischen Elementen */
+    align-items: center;
+}
+
+input {
+    padding: 0.6rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+
+    flex-grow: 1;  /* Platz in der reihe der 'frei' ist*/
+    min-width: 150px;
+    outline-color: var(--gojo-blue);
+}
+
+
+ button {
+
+    /* Alle Buttons (Erstellen, Einschreiben, Abmelden) */
+
+    background: var(--gojo-blue);
+    color: var(--shiro-pure);
+    border: none;
+
+    padding: 0.6rem 1.2rem;
+
+    border-radius: var(--radius-md);
+    cursor: pointer;
+
+    transition: all 0.2s;
+    font-weight: bold;
+    font-size: var(--fs-sm);
+
+    transition: 0.2s;
+}
+
+button:hover {
+    background-color: var(--toshiro-ice);
+    box-shadow: var(--shadow-sm);
+     transform: scale(1.05);      
+}
+
+
+
+/* NEU:   */
+   
+
+.delete-button {
+    background-color: var(--toshiro-ice);
+    box-shadow: var(--shadow-sm);
+}
+
+.delete-button:hover {
+    background-color: var(--sukuna-curse);    
+    transform: scale(1.05);               
+}
+
+
+ .delete-button:active {
+    /*Effekt nach hinten!!  */
+    transform: scale(0.95); 
+    background-color: var(--byakuya-mist); 
+}  
+
+
+
+
+/* Nachrichtenzeilen */
+#enroll-message, #unenroll-message {
+    margin-top: var(--space-sm);
+    font-weight: bold;
+
+    color: var(--sukuna-curse);
+    width: 100%; 
+    /* NEU:  flex-basis: 100%, -> klarer */
+}
+
+
+
+footer {
+    margin-top: var(--space-lg);
+    padding: var(--space-md);
+    border-top: 2px solid var(--border-color);
+    text-align: center;
+    font-size: var(--fs-sm);
+    color: var(--kakashi-shadow);
+}
+
+footer a {
+    color: var(--gojo-blue);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+
+footer a:hover {
+    text-decoration: underline; 
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+
+@media (max-width: 768px) {
+    body { padding: var(--space-sm); padding-top: 5rem; }
+    
+    form { flex-direction: column; align-items: stretch; }
+    
+    .data-item { flex-direction: column; align-items: flex-start; gap: 10px; }
+    
+    button, input { width: 100%; }
+}
+
+/* Große Bildschirme */
+@media (min-width: 1280px) { 
+    body { font-size: 1.1rem; }
+    .data-list { grid-template-columns: repeat(2, 1fr); }
+}
+
+
+
+
+
+

@@ -1,0 +1,47 @@
+# Lukas Atzmüller
+# best Practice
+
+# Abhängigkeiten
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Umgebungsvariablen / Secrets
+.env
+data/
+db_data/
+
+
+# Editor-/IDE-Dateien
+.vscode/
+.idea/
+*.swp
+*.swo
+*.http
+
+# Betriebssystem-Müll (macOS) hidden sysfile -> Metadaten
+.DS_Store
+Thumbs.db
+
+# Build-/Dist-Ordner
+dist/
+build/
+public/build/
+assets/dist/
+
+# Test Coverage
+coverage/
+
+
+# Docker & Zertifikate 
+certs/*
+!certs/.gitkeep
+*.pem
+*.key
+*.crt
+docker-compose.override.yml
