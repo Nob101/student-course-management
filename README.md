@@ -12,10 +12,28 @@ Dieses Projekt wurde im Rahmen meiner Ausbildung zum Informatiker zu Übungszwec
 
 ---
 
+## Quick Start (Dockerized)
+
+Dank Docker ist keine lokale Installation von Node.js oder MongoDB erforderlich.
+
+**Voraussetzungen:** Docker & Docker Desktop gestartet.
+
+1.  git clone https://github.com/Nob101/student-course-management.git
+2.  cp .env.example .env
+3.  Im Projektverzeichnis folgenden Befehl ausführen:
+    ```bash
+    docker-compose up --build -d
+    ```
+
+
+---
+
 **Frontend**
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+
 **Backend**
 [![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)[![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+
 **Infrastruktur & Database**
 [![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)[![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
 
@@ -63,20 +81,6 @@ Die Logik hierfür befindet sich in `database/seed.js` und wird beim Serverstart
 in der `server.js` aufgerufen, sofern `schuelerCount === 0`.
 
 
----
-
-## Quick Start (Dockerized)
-
-Dank Docker ist keine lokale Installation von Node.js oder MongoDB erforderlich.
-
-**Voraussetzungen:** Docker & Docker Desktop gestartet.
-
-1.  git clone https://github.com/Nob101/student-course-management.git
-2.  cp .env.example .env
-3.  Im Projektverzeichnis folgenden Befehl ausführen:
-    ```bash
-    docker-compose up --build -d
-    ```
 
 ---
 
