@@ -2,7 +2,7 @@
 
 **Disclaimer Übungsprojekt**
 
-Dieses Repository enthält ein Management-System für Schüler und Kurse. Das Ziel war die Implementierung einer sauberen Architektur mit Trennung von Frontend, Backend und Datenbank.  ( Geschäftslogik und Datenbankzugriff mittels DAO-Pattern )
+Dieses Repository enthält ein Management-System für Schüler und Kurse. Das Ziel war die Implementierung einer sauberen Architektur mit Trennung von Frontend, Backend und Datenbank.  (Geschäftslogik und Datenbankzugriff mittels DAO-Pattern)
 
 **DAO-Patterns (Data Access Object)**
 **containerisierte NoSQL-Architektur**
@@ -81,8 +81,8 @@ Die Logik hierfür befindet sich in `database/seed.js` und wird beim Serverstart
 in der `server.js` aufgerufen, sofern `schuelerCount === 0`.
 
 
-
 ---
+
 
 ##  Verzeichnisstruktur (MVC-Pattern)
 
@@ -134,8 +134,80 @@ project/
 ├── package-lock.json    # Fixierte Versionsstände der npm-Pakete
 └── server.js            # Entry Point: Express-Server Start & DB-Connect
 
-
 ```
+
+---
+
+# Student & Course Management System
+
+**Student Project Disclaimer**
+This repository contains a management system for students and courses. The primary goal was to implement a clean architecture with a strict separation of frontend, backend, and database logic (Business logic and database access via the DAO pattern).
+
+**Key Architectural Features:**
+* **DAO Pattern (Data Access Object)**
+* **Containerized NoSQL Architecture**
+
+This project was created for educational purposes as part of my computer science education. It serves as a demonstration of modern full-stack development and is not intended for production use.
+
+---
+
+## Quick Start (Dockerized)
+
+Thanks to Docker, no local installation of Node.js or MongoDB is required.
+
+**Prerequisites:** Docker & Docker Desktop must be running.
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/Nob101/student-course-management.git
+    ```
+2.  **Configuration:**
+    ```bash
+    cp .env.example .env
+    ```
+3.  **Start the application:** Run the following command in the project root:
+    ```bash
+    docker-compose up --build -d
+    ```
+
+---
+
+## Tech Stack
+
+* **Frontend:** HTML5, CSS3, JavaScript (Vanilla)
+* **Backend:** Node.js (v22.14.0), Express.js
+* **Database:** MongoDB via Mongoose ODM
+* **Infrastructure:** Docker & Docker Compose
+
+---
+
+## Key Features
+
+* **MongoDB Integration:** Flexible, document-based data schema.
+* **Mongoose ODM:** Type-safe data modeling in JavaScript.
+* **Docker Orchestration:** Full isolation of application and database.
+* **DAO Architecture:** Enhances code maintainability and testability.
+* **Automated Seeding:** The project includes a seeding mechanism (`database/seed.js`) that automatically populates the database with initial test data (students and courses) on the first start.
+
+---
+
+## Project Structure (MVC/DAO Pattern)
+
+The project follows a modular structure to ensure a high level of organization:
+* **`controller/`**: Handles API requests and validation.
+* **`dao/`**: Data Access Objects containing the Mongoose/CRUD logic.
+* **`models/`**: Mongoose schemas defining the data structures.
+* **`public/`**: Static frontend files (Gojo-Blue design and modular JS).
+* **`routes/`**: Definition of Express API endpoints.
+
+---
+
+##  Contributing
+For information on how to run experiments locally or details regarding the branching strategy and pull requests, please refer to the [CONTRIBUTING.md](./CONTRIBUTING.md).
+
+
+---
+
 
 
 
