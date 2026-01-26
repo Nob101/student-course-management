@@ -55,7 +55,10 @@ app.use(express.static('public'));     // falls direkt vom express-Server ausgel
 app.use('/schueler', schuelerRouter);
 app.use('/kurse', kursRouter);
 
-
+// NEU: Weiterleitung der ROOT-URL  -> erreichbar über localhost:3000
+app.get('/', (req, res) => {
+    res.redirect('/html/start.html');
+});
 
 
 

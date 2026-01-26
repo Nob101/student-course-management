@@ -26,7 +26,7 @@ export const renderView = {
                // NEU: dataset speichert eigene Werte direkt in HTML  -> best practice
             li.dataset.id = student._id;
 // NEU: Kurse der einzelnen Schüler onSelect => Kurs-logik umgedreht
-// Aber hängt nur einen listener an, counter zB würde probleme machen   -> addEventlistener
+// Aber onclick hängt nur einen listener an, ein Zusatz wie  zB counter würde probleme machen   -> addEventlistener
         li.onclick = () => onSelect(student._id, `${student.vorname} ${student.nachname}`);
 
             // NEU: Anzeige von Name und der MongoDB _id

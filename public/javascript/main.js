@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
- * Alle Daten von API holen und mit view darstellen
+ * Alle Daten von API holen und mit view.js darstellen
  */
 
 async function updateSite() {
@@ -73,7 +73,7 @@ async function updateSite() {
 
 /**
  * Initialisieren der Formulare / User-Input
- * muss selbst nicht asnc sein, nur dei Event-Listener innerhalb
+ * muss selbst nicht async sein, nur die Event-Listener innerhalb.
  */
 
 function initSetup() {
@@ -169,12 +169,12 @@ function initSetup() {
        
         return;
     }
-
+// debugger;
             const schuelerId = schuelerOption.dataset.id;
             const kursId = kursOption.dataset.id;
 
         const response = await apiService.unenroll( kursId, schuelerId);
-      
+    
 
         if (response.ok){
              renderView.showStatus("  Erfolgreich abgemeldet!", "green");
@@ -192,7 +192,7 @@ function initSetup() {
 
 
     // NEU: Suche nach Namen Schüler und kurse
-    // nicht search-id-finder sonder global-search-finder
+    // Wichtig: nicht 'search-id-finder' sonder 'global-search-finder'
 
     
    

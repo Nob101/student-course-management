@@ -8,13 +8,13 @@
 services:
   mongodb:
     image: mongo:latest
-    container_name: DAO_Teil_vier
+    container_name: mongodb_db
     ports:
       - "27017:27017"
     volumes:
       - mongodb_data:/data/db
     healthcheck:
-      test: ["CMD-SHELL", "mongosh --eval \"db.adminCommand('ping')\" "]
+      test: ["CMD-SHELL", "mongosh --eval 'db.adminCommand({ping:1})'"]
       interval: 10s
       timeout: 5s
       retries: 4

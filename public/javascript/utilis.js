@@ -4,7 +4,7 @@ import API_BASE_URL from '../config.js';
 const API_URL = API_BASE_URL;
 
 // NEU: HTML Template Hilfsfunktion (DRY) um Dashboard und Suche schlanker zu halten
-// XSS Sicher(er)    Schueelr oder Kurs   Ternäre Operator
+// XSS Sicher(er)    Schueelr oder Kurs  
 
 // moderner (HOISTING)  => da variablen  definiert sein müssen
 export const  createTemplate = (value, type, isDashboard = false) => {
@@ -23,7 +23,7 @@ export const  createTemplate = (value, type, isDashboard = false) => {
             </${tag}>`;
 
     } else if (type === 'kurs') {
-        // wenn kein Schüler = Kurs lol
+        // wenn kein Schüler = Kurs 
         return `
 
             <${tag} class="${className}" data-id="${valueId}">
