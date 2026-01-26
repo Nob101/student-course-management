@@ -127,6 +127,7 @@ project/
 ├── .dockerignore        # Optimiert den Docker-Build
 ├── .gitignore           # Verhindert Upload von node_modules & Secrets
 ├── .env.example           # Beispiel .env Datei   (Port & Path)
+├── CONTRIBUTING.md        # Leitfaden für Branching & lokale Entwicklung 
 ├── docker-compose.yml   # Orchestrierung von Node-App & MongoDB
 ├── Dockerfile           # Bauanleitung für das Node.js-Image (slim)
 ├── LICENSE              # Rechtliche Rahmenbedingungen (MIT)
