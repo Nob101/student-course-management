@@ -3,7 +3,7 @@
 # node:slim -> Mittel 150MB (bcrypt)
 # node:alpine -> klein 50MB (Alpine-Linux)
 
-FROM node:20-slim
+FROM node:25-slim
 
 # installieren der Abhängigkeiten zum Beispiel für bycript (c++ compiler und make als steurungsprogramm -> CS50)
 RUN apt-get update && apt-get install -y python3 make g++ && rm -rf /var/lib/apt/lists/*
