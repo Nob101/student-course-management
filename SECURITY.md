@@ -2,20 +2,21 @@
 
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+Da dies ein Projekt im Rahmen meiner Ausbildung ist, wird aktiv nur die aktuelle Hauptversion unterstützt.
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+| 1.0.x   | :white_check_mark: |
+| < 1.0   | :x:                |
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
+**Bitte eröffne keine öffentlichen Issues für Sicherheitslücken.**
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+Um die Sicherheit dieses Projekts zu gewährleisten, nutze bitte die Funktion **"Private Security Advisory"** auf GitHub:
+
+1. Gehe zum Reiter **Security** oben in diesem Repository.
+2. Wähle **Advisories** in der linken Seitenleiste.
+3. Klicke auf **Report a vulnerability**, um privat Details zu übermitteln.
+
+Ich werde versuchen, so schnell wie möglich auf Meldungen zu reagieren.

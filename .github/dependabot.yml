@@ -1,0 +1,9 @@
+
+# NEU: 24/7 Security-Check - Auto-fix
+version: 2
+updates:
+  - package-ecosystem: "docker"     # Prüft deine Dockerfiles/Docker-Compose
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
