@@ -5,8 +5,14 @@
 
 FROM node:25-slim
 
-# installieren der Abhängigkeiten zum Beispiel für bycript (c++ compiler und make als steurungsprogramm -> CS50)
-RUN apt-get update && apt-get install -y python3 make g++ && rm -rf /var/lib/apt/lists/*
+#NEU: installieren der Abhängigkeiten 
+RUN apt-get update && apt-get install -y \
+    python3 \
+    make \
+    g++ \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
 
 # Erstellt Verzeichnis im Container und wecselt in diesen Pfad
 WORKDIR /usr/src/app

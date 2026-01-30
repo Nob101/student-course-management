@@ -8,6 +8,8 @@ const express = require('express');
 const cors = require('cors');
 const { initDataBase } = require('./database/database');
 const seedData = require('./database/seed');
+//NEU: Aufruf vom Logger
+const customLog = require('./middleware/logger');
 
 
 const app = express();
@@ -23,7 +25,7 @@ const kursRouter = require('./routes/kursRouter');
 // middleware
 app.use(cors());
 app.use(express.json());  //request body notwendeig
-
+app.use(customLog);
 
 
 // NEU: Cache vermeiden => Sensible Daten
@@ -60,7 +62,10 @@ app.get('/', (req, res) => {
     res.redirect('/html/start.html');
 });
 
-
+// NEU: Überprüfen ob DB-Verbindung steht   über localhost:3000/health   kommt das OK (Frontend)
+app.get('/health', (req,res) => {
+    res.status(200).send('OK');
+})
 
 // neue startfunktion    
 async function startServer(){

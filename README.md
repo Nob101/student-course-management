@@ -12,6 +12,13 @@ Dieses Projekt wurde im Rahmen meiner Ausbildung zum Informatiker zu Übungszwec
 
 ---
 
+## Neuerungen:  (v1.1.0)
+* **Dependency Management:** GitHub Dependabot Integration für wöchentliche Security-Audits.
+* **Request Logging:** Eigene Middleware zur Protokollierung von HTTP-Requests (Method, URL, Timestamp).
+* **Enhanced Health Monitoring:** Erweiterung des Healthchecks um die Express-App via `curl` (inkl. Installation im Dockerfile)..
+
+---
+
 ## Quick Start (Dockerized)
 
 Dank Docker ist keine lokale Installation von Node.js oder MongoDB erforderlich.
@@ -139,6 +146,8 @@ project/
 
 ---
 
+# English
+
 # Student & Course Management System
 
 **Student Project Disclaimer**
@@ -149,6 +158,17 @@ This repository contains a management system for students and courses. The prima
 * **Containerized NoSQL Architecture**
 
 This project was created for educational purposes as part of my computer science education. It serves as a demonstration of modern full-stack development and is not intended for production use.
+
+
+
+
+
+---
+
+##  Recent Updates: (v1.1.0)
+* **Dependency Management:** Integrated GitHub Dependabot for automated weekly security audits.
+* **Request Logging:** Custom middleware for logging HTTP requests (Method, URL, Timestamp) directly to the console.
+* **Enhanced Health Monitoring:** Added Express App healthchecks via `curl` (including `curl` installation in Dockerfile).
 
 ---
 

@@ -2,7 +2,12 @@
 # NEU: 24/7 Security-Check - Auto-fix
 version: 2
 updates:
-  - package-ecosystem: "docker"     # Prüft deine Dockerfiles/Docker-Compose
+  - package-ecosystem: "docker"     # Prüft  Dockerfiles/Docker-Compose
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
+  - package-ecosystem: "npm"     # Prüft package.json
     directory: "/"
     schedule:
       interval: "weekly"

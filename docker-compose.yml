@@ -1,9 +1,9 @@
 # 
 # Healthcheck dient zur Kontrolle... ob die DB wirklich bereit ist
 # Express -> Mongo Web oberfläche Aufrufen
-# Volume speichert dauerhaft (Directorie) auch wenn container stoppt
+# Volume speichert dauerhaft (Directorie) auf der Festplatte, auch wenn container stoppt
 
-# node.js server als container => Express server Logik
+# 
 
 services:
   mongodb:
@@ -14,7 +14,7 @@ services:
     volumes:
       - mongodb_data:/data/db
     healthcheck:
-      test: ["CMD-SHELL", "mongosh --eval 'db.adminCommand({ping:1})'"]
+      test: ["CMD-SHELL", "mongosh --eval 'db.adminCommand({ping:1})'"]  #Ist DB bereit? -> ping
       interval: 10s
       timeout: 5s
       retries: 4
@@ -24,17 +24,23 @@ services:
   app:
     build: .
     container_name: node_app
+    command: npm run dev    #NEU: Startet Nodemon
     ports:
      - "3000:3000"
     volumes:
-      - .:/usr/src/app                # Live-Sync (Dadurch 'sieht ' der Container meine lokalen Änderungen und reagiert darauf) 
+      - .:/usr/src/app                # Live-Sync (Dadurch 'sieht ' der Container  lokale Änderungen und reagiert darauf) 
       - /usr/src/app/node_modules     # Verhindert das Überschreiben durch lokale Module
     environment:
       - MONGO_URI=mongodb://mongodb:27017/kursverwaltung
     depends_on:
       mongodb:
         condition: service_healthy
-
+    healthcheck:                      #NEU: Healthcheck ob Express-Server auf Port 3000 erreichbar ist   (curl muss installiert sein)
+      test: ["CMD-SHELL", "curl -f http://localhost:3000/health || exit 1"]
+      interval: 1m30s
+      timeout: 30s
+      retries: 3
+      start_period: 30s       #Zeit zum Booten geben
 # volumes
 volumes:
   mongodb_data:
