@@ -1,0 +1,32 @@
+name: CI for Kursverwaltung
+
+# trigger -> wann soll was passieren beim push ins main
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# test -> baut eine VM mmit Ubuntu und führt nacheinander die "steps" aus
+jobs:
+  quality-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js 25
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'      # Node version
+      - run: npm ci               # Installiert exakt die Pakete aus der package-lock.json
+
+      - name: Security Audit      # Prüft auf Sicherhietslücken in den Packeten (NPM)
+        run: npm audit --audit-level=high 
+
+  docker-build:
+    needs: quality-check          # Erst wenn der Code-Check bestanden wurde wird Docker gebaut
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Docker Compose
+        run: docker compose build

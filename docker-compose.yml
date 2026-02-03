@@ -24,7 +24,7 @@ services:
   app:
     build: .
     container_name: node_app
-    command: npm run dev    #NEU: Startet Nodemon
+    command: npx nodemon server.js    #NEU: Startet Nodemon nur noch in der lokalen Entwicklung
     ports:
      - "3000:3000"
     volumes:

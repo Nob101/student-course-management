@@ -20,12 +20,12 @@ WORKDIR /usr/src/app
 # NUR package.json; falls Code geändert wird (Docker überspringt npm install wenn keine neuen Pakete existieren)
 COPY package*.json ./
 
-# Dependencies
-RUN npm install
+# Dependencies  NEU: von 'install' auf 'clean install' gewechselt (package-lock.json) -> exakter bei den Versionen
+RUN npm ci
 # Quellcode kopieren
 COPY . .
 
 #Port öffnen (Wichtig)
 EXPOSE 3000
 #  Startbefehl aus package.json inkl nodemon  -> verhindert rebuild
-CMD ["npx", "nodemon", "server.js"]
+CMD [ "node", "server.js"]

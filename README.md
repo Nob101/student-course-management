@@ -12,10 +12,10 @@ Dieses Projekt wurde im Rahmen meiner Ausbildung zum Informatiker zu Übungszwec
 
 ---
 
-## Neuerungen:  (v1.1.0)
-* **Dependency Management:** GitHub Dependabot Integration für wöchentliche Security-Audits.
-* **Request Logging:** Eigene Middleware zur Protokollierung von HTTP-Requests (Method, URL, Timestamp).
-* **Enhanced Health Monitoring:** Erweiterung des Healthchecks um die Express-App via `curl` (inkl. Installation im Dockerfile)..
+## Neuerungen:  (v1.2.0)
+* **CI/CD Pipeline:** Automatisierte GitHub Actions zur Überprüfung der Code-Qualität und Build-Stabilität.
+* **Security & Quality:** Automatisierter `npm audit` und `npm ci` bei jedem Push, um Sicherheitslücken in Dependencies zu vermeiden.
+* **Hybrid Docker-Setup:** Optimiertes Dockerfile für Production (Node 25-slim) mit Development-Overrides in Docker Compose (Nodemon).
 
 ---
 
@@ -31,6 +31,7 @@ Dank Docker ist keine lokale Installation von Node.js oder MongoDB erforderlich.
     ```bash
     docker-compose up --build -d
     ```
+4. Im Browser unter `http://localhost:3000/html/start.html` zugreifen
 
 
 ---
@@ -42,7 +43,8 @@ Dank Docker ist keine lokale Installation von Node.js oder MongoDB erforderlich.
 [![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)[![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 **Infrastruktur & Database**
-[![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)[![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)[![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)![CI Status](https://github.com/Nob101/student-course-management/actions/workflows/main.yml/badge.svg)
+
 
 
 ---

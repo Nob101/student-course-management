@@ -12,8 +12,9 @@ npm-debug.log*
 
 
 
-# Versionsverwaltung / Umgebungsvariable
+# Versionsverwaltung / Umgebungsvariable / Gitverlauf
 .git
+.github
 .env
 
 # Docker braucht diese files um container zu bauen, aber die App braucht die eigene 'Bauanleitung' nicht mehr
@@ -24,3 +25,7 @@ docker-compose.yml
 # Betriebssystem-Metadaten
 .DS_Store
 Thumbs.db
+
+# NEU: Dokumentation
+*.md 
+LICENSE
