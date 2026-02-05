@@ -12,7 +12,7 @@ Dieses Projekt wurde im Rahmen meiner Ausbildung zum Informatiker zu Übungszwec
 
 ---
 
-## Neuerungen:  (v1.2.0)
+## Neuerungen:  (v1.2.1)
 * **CI/CD Pipeline:** Automatisierte GitHub Actions zur Überprüfung der Code-Qualität und Build-Stabilität.
 * **Security & Quality:** Automatisierter `npm audit` und `npm ci` bei jedem Push, um Sicherheitslücken in Dependencies zu vermeiden.
 * **Hybrid Docker-Setup:** Optimiertes Dockerfile für Production (Node 25-slim) mit Development-Overrides in Docker Compose (Nodemon).
@@ -167,7 +167,7 @@ This project was created for educational purposes as part of my computer science
 
 ---
 
-##  Recent Updates: (v1.1.0)
+##  Recent Updates: (v1.2.1)
 * **Dependency Management:** Integrated GitHub Dependabot for automated weekly security audits.
 * **Request Logging:** Custom middleware for logging HTTP requests (Method, URL, Timestamp) directly to the console.
 * **Enhanced Health Monitoring:** Added Express App healthchecks via `curl` (including `curl` installation in Dockerfile).

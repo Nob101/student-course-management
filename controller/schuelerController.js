@@ -57,6 +57,22 @@ async function createSchueler(req, res){
 
     }
 
+    // NEU: Prüfen ob SV-Nummer wirklich nur Nummer ist (RegEx)
+    const nurZiffern = /^\d+$/;
+
+    if(!nurZiffern.test(svnummer)) {
+        return res.status(400).json({
+            message: 'Fehler: Die SV-Nummer enthält ungültige Zeichen!'
+        });
+    }
+
+    if(svnummer.length !==8){
+        return res.status(400).json({
+            message: 'Die SV ist nicht lang genug.'
+        });
+    }
+
+
     try   {
         //  das ganze Objekt  an DAO weiter reichen
         const neuerSchueler = await schuelerDao.create({ vorname, nachname, svnummer });

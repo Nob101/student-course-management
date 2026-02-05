@@ -23,12 +23,12 @@ macht root verfügbar*/
     box-shadow: 0 4px 10px var(--zangetsu-abyss); 
     z-index: 999;
     
-    /*  die Navbar über dem Inhalt liegt */
+    /* z-index sorgt dafür dass die Navbar über dem Inhalt liegt */
 
 }
 
 
-/* Einmal für alle Buttons */
+
 .nav-button, button  {
     display: inline-flex;   
         align-items: center;
@@ -46,7 +46,7 @@ macht root verfügbar*/
         text-decoration: none;
 }
 
-/* Nur die Unterschiede definieren */
+/* Nur die Unterschiede der btn's definieren */
 .nav-button {background: var(--ichigo-soul); 
     color: var(--bg-card); 
     margin-right: 10px;
@@ -119,7 +119,7 @@ macht root verfügbar*/
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: var(--zangetsu-abyss); /* Zangetsu mit Transparenz */
+    background: var(--zangetsu-abyss);
     /* backdrop-filter: blur(12px); */
 
     z-index: 2000;
@@ -166,7 +166,6 @@ macht root verfügbar*/
 
 
 /* NEU: Utils */
-
 
 @keyframes fadeInZoom {
     0% { transform: scale(0.9); opacity: 0; }

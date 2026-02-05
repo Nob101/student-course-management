@@ -137,7 +137,7 @@ section {
     align-items: center;
     /* NEU: var ändern!! */
     background: var(--bg-body);
-   padding: var(--space-sm);
+    padding: var(--space-sm);
 
     border-radius: var(--radius-md);
     border-left: 5px solid var(--gojo-blue); 
@@ -161,7 +161,7 @@ section {
 
 form {
     display: flex;
-    flex-wrap: wrap;    /* Erlaubt Umbruch auf kleinen Bildschirmen */
+    flex-wrap: wrap;        /* Erlaubt Umbruch auf kleinen Bildschirmen */
     gap: var(--space-sm);   /* Abstand zwischen Elementen */
     align-items: center;
 }
@@ -171,7 +171,7 @@ input {
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
 
-    flex-grow: 1;  /* Platz in der reihe der 'frei' ist*/
+    flex-grow: 1;           /* Platz in der reihe der 'frei' ist*/
     min-width: 150px;
     outline-color: var(--gojo-blue);
 }
@@ -205,7 +205,7 @@ button:hover {
 
 
 
-/* NEU:   */
+/* NEU: */
    
 
 .delete-button {
@@ -235,7 +235,7 @@ button:hover {
 
     color: var(--sukuna-curse);
     width: 100%; 
-    /* NEU:  flex-basis: 100%, -> klarer */
+   
 }
 
 

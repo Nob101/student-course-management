@@ -18,7 +18,7 @@ async function seedData(){
             const fakeSchueler = await Schueler.create({
                 vorname: 'John',
                 nachname: 'Doe',
-                svnummer: '1111039A'
+                svnummer: '11110395'
                 
             });
 

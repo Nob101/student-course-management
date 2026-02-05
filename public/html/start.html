@@ -32,13 +32,13 @@
         <h2>Neue Schüler</h2>
         <form id="create-schueler-form">
             <label for="schueler-vorname"> Vorname: </label>
-            <input type="text" id="schueler-vorname" placeholder="Lasmiranda" maxlength="20" required>
+            <input type="text" id="schueler-vorname" placeholder="Reiner" maxlength="25" required>
 
             <label for="schueler-nachname"> Nachname: </label>
-            <input type="text" id="schueler-nachname" placeholder="Densivillia" maxlength="30" required>
+            <input type="text" id="schueler-nachname" placeholder="Zufall" maxlength="35" required>
 <!-- NEU: Autocomplete off -->
             <label for="sv-nummer"> SV-Nummer </label>
-            <input type="text" id="sv-nummer" autocomplete="off" placeholder="12345678" minlength="8" maxlength="8" required>
+            <input type="text" id="sv-nummer" autocomplete="off" placeholder="Bitte die 8 Ziffern eingeben.." minlength="8" maxlength="8" pattern="[0-9]{8}" required>
             
             <button type="submit">Schüler hinzufügen</button>
         </form>
@@ -54,7 +54,7 @@
             <input type="text" id="kurs-name" placeholder="CS_101" required>
 
             <label for="kurs-lehrer">Lehrer: </label>
-            <input type="text" id="kurs-lehrer" placeholder="Name" required>
+            <input type="text" id="kurs-lehrer" placeholder="Name/Kürzl" required>
 
             <button type="submit">Kurs erstellen</button>
         </form>

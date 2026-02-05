@@ -1,6 +1,6 @@
 // NEU: Logik auf MVC angepasst / Schaltzentrale
-// Ein Module das Datenlädt
-// Ein Module das die Daten darstellt
+// Ein Modul das Datenlädt
+// Ein Modul das die Daten darstellt
 
 
 
@@ -85,10 +85,22 @@ function initSetup() {
             nachname: document.getElementById('schueler-nachname').value,
             svnummer: document.getElementById('sv-nummer').value
         };
-        await apiService.createSchueler(data);
-        event.target.reset();    //reset wichtig!!! leert das Formular nach submit
+        // NEU: Damit die Error mesages behandelt werden
+    const response = await apiService.createSchueler(data);
+
+    if (response.ok) {
+        // WENN: Alles okay (Status 201)
+        renderView.showStatus("Schüler erfolgreich angelegt!", "green");
+        event.target.reset(); 
         updateSite();
-    });
+    } else {
+        // WENN: Fehler (z.B. Status 400 wegen Buchstaben oder falscher Länge)
+        //  Fehlermeldung ("message") aus dem JSON des Backends holen
+        const errorData = await response.json();
+        renderView.showStatus(errorData.message || "Fehler beim Erstellen!", "red");
+    }
+});
+    
 
 
 // Kurs anlegen
@@ -107,7 +119,7 @@ function initSetup() {
     // NEU: Schüler zu Kurs einschreiben => Kursteilnehmer via Namen (dataset)
     document.getElementById('enroll-form').addEventListener('submit', async (event) => {
         event.preventDefault();
-// wieder vertauscht -_-
+    // wieder vertauscht -_-
         const schuelerName = document.getElementById('enroll-schueler-input').value;
         const kursName = document.getElementById('enroll-kurs-input').value;
          
@@ -147,11 +159,6 @@ function initSetup() {
 
 
 
-
-
-
-// Bis hier hin stimmts (idtag prüfen delet-form ALT!!!!)
-// innerhalb enroll-form -_-
 
     // Schüler aus Kurs werfen lol... 
 
@@ -194,8 +201,8 @@ function initSetup() {
     // NEU: Suche nach Namen Schüler und kurse
     // Wichtig: nicht 'search-id-finder' sonder 'global-search-finder'
 
-    
-   
+
+
 // Mongoose verschachtelt Objekte durch .populate('schueler')
 // Auch ohne schüler exisiert ein Kurs 
 async function showKurse(id) {

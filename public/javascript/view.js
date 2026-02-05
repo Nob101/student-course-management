@@ -2,7 +2,7 @@
  * ES6 Module Nativer Standard bei Browserumgebung
  * reine DOM manipulation (optik) -> kein try catch finally
  * bekommt Daten aus apiService  -> Aufteilen von loadSchueler usw.
- * CSS anpassen!!!!
+ * 
  */ 
 
 
@@ -25,8 +25,8 @@ export const renderView = {
             li.style.cursor = 'pointer';
                // NEU: dataset speichert eigene Werte direkt in HTML  -> best practice
             li.dataset.id = student._id;
-// NEU: Kurse der einzelnen Schüler onSelect => Kurs-logik umgedreht
-// Aber onclick hängt nur einen listener an, ein Zusatz wie  zB counter würde probleme machen   -> addEventlistener
+                // NEU: Kurse der einzelnen Schüler onSelect => Kurs-logik umgedreht
+                // Aber onclick hängt nur einen listener an, ein Zusatz wie  zB counter würde probleme machen   -> addEventlistener
         li.onclick = () => onSelect(student._id, `${student.vorname} ${student.nachname}`);
 
             // NEU: Anzeige von Name und der MongoDB _id
@@ -39,11 +39,11 @@ export const renderView = {
             deleteBtn.textContent = 'Löschen';
            deleteBtn.className = 'delete-button';
 
-        //    NEU: Callback onDelete -> view muss nicht wissen wie gelöscht wird
+        //   NEU: Callback onDelete -> view muss nicht wissen wie gelöscht wird
             deleteBtn.onclick = (event) => {
                 event.stopPropagation();   // bubbling
                 const fullName = `${student.vorname} ${student.nachname}`;
-                onDelete(student._id, fullName);    // Ruft die Lösch-Funktion auf
+                onDelete(student._id, fullName);            // Ruft die Lösch-Funktion auf
             };
 
             li.appendChild(deleteBtn);
@@ -68,7 +68,7 @@ export const renderView = {
           
            li.dataset.id = kurs._id;
 
-            // NEU: Callback onSelect
+            //  Callback onSelect
     li.onclick = () => onSelect(kurs._id, kurs.kursname);
 
            const content = document.createElement('span');
@@ -150,7 +150,7 @@ renderTeilnehmer(schuelerName, kursNamen) {
             const li = document.createElement('li');
             li.className = 'data-item kurs-item';
 
-            li.textContent = `${kurs.kursname} Lehrer: ${kurs.lehrer})`;
+            li.textContent = `${kurs.kursname} Lehrer: ${kurs.lehrer}`;
             list.appendChild(li);
         });
     }
