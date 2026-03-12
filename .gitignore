@@ -17,6 +17,7 @@ data/
 db_data/
 
 
+
 # Editor-/IDE-Dateien
 .vscode/
 .idea/
@@ -45,3 +46,15 @@ certs/*
 *.key
 *.crt
 docker-compose.override.yml
+
+# Temporäres/Tests
+test.*
+*.http
+*.txt
+temp/
+db.json
+
+# Zeichnungen
+*.drawio
+*.drawio.svg
+*.drawio.png
