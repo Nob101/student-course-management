@@ -12,8 +12,6 @@ async function seedData(){
 
         if(schuelerCount === 0 && kursCounter === 0){
             console.log('Seeding Test Data...');
-
-
               // Fake schüler erstellen
             const fakeSchueler = await Schueler.create({
                 vorname: 'John',
@@ -21,15 +19,14 @@ async function seedData(){
                 svnummer: '11110395'
                 
             });
-
-            // Kurs erstellen
+            // Fake Kurs erstellen
             const fakeKurs = await Kurse.create({
                 kursname: 'Musik_101',
                 lehrer: 'John F.',
                 schueler: [fakeSchueler._id]
 
             });
-          
+        
             console.log(`Testkurs ${fakeKurs.name} angelegt und der Testschüler ${fakeSchueler.vorname} eingetragen`);
 
 

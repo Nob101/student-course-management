@@ -15,14 +15,11 @@ KursDao.prototype.getAll = async function(){
 }
 
 /**
- * Einen Kurs per Id und 'pushed' schülerdaten dazu
  * Data Enrichment - Datenanreicherungen / Daten zusammenführen (.populate('schuelr'))
  */
 KursDao.prototype.getById = async function(id){
     return await Kurs.findById(id).populate('schueler')
 };
-
-
 
 KursDao.prototype.create = async function(kursname, lehrer){
     
@@ -43,16 +40,13 @@ KursDao.prototype.create = async function(kursname, lehrer){
  */
 KursDao.prototype.addSchueler = async  function(schuelerId, kursId){
    
-
     return await Kurs.findByIdAndUpdate(
         kursId,
         { $addToSet: { schueler: schuelerId }
     },
-    {new: true}  //gibt aktuelste Dokument zurück
+    {new: true}  //gibt das aktuellste Dokument zurück
     ).populate('schueler');
 };
-
-
 
 
 // Löscht einen  Kurs
@@ -60,8 +54,6 @@ KursDao.prototype.delete = async function(id) {
     const result = await Kurs.findByIdAndDelete(id);
     return result !== null;
 };
-
-
 
 /**
  * Schüler nur abmelden mit $pull

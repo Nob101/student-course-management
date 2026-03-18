@@ -12,7 +12,6 @@ function SchuelerDao(){
     
 }
 
-
 // Methode um alle Schueler zu holen MongoDB
 SchuelerDao.prototype.getAll = async function(){
    
@@ -38,7 +37,6 @@ SchuelerDao.prototype.delete = async  function(id){
 
     return result !== null;
 };
-
 
 
 // NEU: Holt alle Kurse, in denen ein bestimmter Schüler eingeschrieben ist.
