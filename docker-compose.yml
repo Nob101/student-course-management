@@ -18,6 +18,9 @@ services:
       interval: 10s
       timeout: 5s
       retries: 4
+      # NEU: Watchtower Erlaubnis: Nur dieser Container wird automatisch geupdated !!
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
 
 # build -> Docker sucht nach "Dockerfile"
 # condition -> wartet bis healthcheck erfolgreich war
@@ -41,6 +44,20 @@ services:
       timeout: 30s
       retries: 3
       start_period: 30s       #Zeit zum Booten geben
+
+  watchtower:
+    image: containrrr/watchtower    # schreibt man wirklich mit 3 r lol
+    container_name: watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      # Intervall in Sekunden Nicht Millisek. (3600s = 1 Stunde)
+    - WATCHTOWER_POLL_INTERVAL=3600
+      # Löscht alte Images nach dem Update
+    - WATCHTOWER_CLEANUP=true
+      # Wichtig: Nur Container mit dem speziellen Label updaten
+    - WATCHTOWER_LABEL_ENABLE=true
+    restart: unless-stopped
 # volumes
 volumes:
   mongodb_data:

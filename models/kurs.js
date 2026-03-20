@@ -10,7 +10,8 @@ const mongoose = require('mongoose');
 const kursSchema = new mongoose.Schema({
     kursname: { type: String, required: true},
     lehrer: {type: String, required: true},
-    //N:M durch Object ID in einem Array -> Schueler (Anstelle eines INTEGER [MongoDB-Referenz 12-Byte-Binärwert])
+    //N:M durch Object ID in einem Array -> Schueler 
+    //(Anstelle eines INTEGER [MongoDB-Referenz 12-Byte-Binärwert])
     schueler: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Schueler'

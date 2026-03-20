@@ -17,17 +17,15 @@ async function seedData(){
                 vorname: 'John',
                 nachname: 'Doe',
                 svnummer: '11110395'
-                
+
             });
             // Fake Kurs erstellen
             const fakeKurs = await Kurse.create({
                 kursname: 'Musik_101',
                 lehrer: 'John F.',
                 schueler: [fakeSchueler._id]
-
             });
-        
-            console.log(`Testkurs ${fakeKurs.name} angelegt und der Testschüler ${fakeSchueler.vorname} eingetragen`);
+        console.log(`Testkurs ${fakeKurs.name} angelegt und der Testschüler ${fakeSchueler.vorname} eingetragen`);
 
 
         } else {

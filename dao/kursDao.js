@@ -15,7 +15,7 @@ KursDao.prototype.getAll = async function(){
 }
 
 /**
- * Data Enrichment - Datenanreicherungen / Daten zusammenführen (.populate('schuelr'))
+ * Data Enrichment - Datenanreicherungen / Daten zusammenführen (.populate('schueler'))
  */
 KursDao.prototype.getById = async function(id){
     return await Kurs.findById(id).populate('schueler')
