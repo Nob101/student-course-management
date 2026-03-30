@@ -12,7 +12,7 @@ Dieses Projekt wurde im Rahmen meiner Ausbildung zum Informatiker zu Übungszwec
 
 ---
 
-## Neuerungen:  (v1.3.0)
+## Neuerungen:  (v1.3.1)
 * **CI/CD Pipeline:** Automatisierte GitHub Actions zur Überprüfung der Code-Qualität und Build-Stabilität.
 * **Auto-Maintenance (Watchtower)**: Integration von Watchtower zur automatischen Aktualisierung von MongoDB-Container.
 * **Security & Quality:** Automatisierter `npm audit` und `npm ci` bei jedem Push, um Sicherheitslücken in Dependencies zu vermeiden.

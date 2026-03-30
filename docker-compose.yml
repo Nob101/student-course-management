@@ -3,12 +3,19 @@
 # Express -> Mongo Web oberfläche Aufrufen
 # Volume speichert dauerhaft (Directorie) auf der Festplatte, auch wenn container stoppt
 
-# 
+
+# Anker bei dem Docker alles was mit x- beginnt ignoriert (Wichtig! sonst Error)
+x-logging: &logging-config
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
 services:
   mongodb:
     image: mongo:latest
     container_name: mongodb_db
+    logging: *logging-config
     ports:
       - "27017:27017"
     volumes:
@@ -21,6 +28,12 @@ services:
       # NEU: Watchtower Erlaubnis: Nur dieser Container wird automatisch geupdated !!
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
+    deploy:
+      resources:
+        limits:
+          memory: 2GB
+        reservations: 
+          memory: 256MB
 
 # build -> Docker sucht nach "Dockerfile"
 # condition -> wartet bis healthcheck erfolgreich war
@@ -45,6 +58,14 @@ services:
       retries: 3
       start_period: 30s       #Zeit zum Booten geben
 
+    logging: *logging-config
+    deploy:
+      resources:
+        limits:
+          memory: 512MB
+        reservations: 
+          memory: 128MB
+
   watchtower:
     image: containrrr/watchtower   # schreibt man wirklich mit 3 r lol
     container_name: watchtower
@@ -58,6 +79,15 @@ services:
         # Wichtig: Nur Container mit dem speziellen Label updaten
       - WATCHTOWER_LABEL_ENABLE=true
     restart: unless-stopped    # automatischer Neustart (außer manuell)
+
+    logging: *logging-config
+
+    deploy:
+      resources:
+        limits:
+          memory: 128MB
+        reservations: 
+          memory: 50MB
 # volumes
 volumes:
   mongodb_data:
