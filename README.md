@@ -12,10 +12,11 @@ Dieses Projekt wurde im Rahmen meiner Ausbildung zum Informatiker zu Übungszwec
 
 ---
 
-## Neuerungen:  (v1.2.1)
+## Neuerungen:  (v1.3.0)
 * **CI/CD Pipeline:** Automatisierte GitHub Actions zur Überprüfung der Code-Qualität und Build-Stabilität.
+* **Auto-Maintenance (Watchtower)**: Integration von Watchtower zur automatischen Aktualisierung von MongoDB-Container.
 * **Security & Quality:** Automatisierter `npm audit` und `npm ci` bei jedem Push, um Sicherheitslücken in Dependencies zu vermeiden.
-* **Hybrid Docker-Setup:** Optimiertes Dockerfile für Production (Node 25-slim) mit Development-Overrides in Docker Compose (Nodemon).
+* **Automatisierung:** Neues Windows-Start-Skript. Ein Feature um Docker automatisch zu starten, die Container zu bauen und den Browser zu öffnen ("One-Click Start").
 
 ---
 
@@ -142,7 +143,8 @@ project/
 ├── LICENSE              # Rechtliche Rahmenbedingungen (MIT)
 ├── package.json         # Projekt-Metadaten & Abhängigkeiten
 ├── package-lock.json    # Fixierte Versionsstände der npm-Pakete
-└── server.js            # Entry Point: Express-Server Start & DB-Connect
+├── server.js            # Entry Point: Express-Server Start & DB-Connect
+└── win_start.bat        # Startskript für Windows (Docker, Browser)
 
 ```
 

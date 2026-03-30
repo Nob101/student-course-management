@@ -27,5 +27,5 @@ COPY . .
 
 #Port öffnen (Wichtig)
 EXPOSE 3000
-#  Startbefehl aus package.json inkl nodemon  -> verhindert rebuild
+#  Startbefehl aus package.json inkl nodemon
 CMD [ "node", "server.js"]
