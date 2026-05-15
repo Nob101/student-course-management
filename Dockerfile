@@ -3,7 +3,7 @@
 # node:slim -> Mittel 150MB (bcrypt)
 # node:alpine -> klein 50MB (Alpine-Linux)
 
-FROM node:25-slim
+FROM node:26-slim
 
 #NEU: installieren der Abhängigkeiten 
 RUN apt-get update && apt-get install -y \
