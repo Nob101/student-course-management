@@ -2,6 +2,20 @@
 setlocal
 echo [INFO] Pruefe Docker Status...
 
+
+
+:: NEW: Prüfung ob .env überhaupt existiert, wenn nicht dann aus example kopieren
+if not exist .env (
+    if exist .env.example (
+        echo [WARN] Keine .env gefunden. Erstelle .env ...
+        copy .env.example .env >nul
+    ) else (
+        echo [ERROR] Weder .env noch .env.example gefunden!
+        pause
+        exit /b
+    )
+)
+
 ::Prüft ob Docker bereits läuft 
 docker info >nul 2>&1
 if %errorlevel% equ 0 (
@@ -35,7 +49,7 @@ set /a counter+=1
 :: Abbruch nach 6 Versuchen (30 Sekunden)
 if %counter% gtr 6 (
     echo [ERROR] Docker Engine konnte nicht zeitnah gestartet werden. Limit: 30s
-    echo [INFO] Ändere 'gtr 6' zu 'gtr 12' im Skript für 60s Wartezeit.
+    echo [INFO] Aendere 'gtr 6' zu 'gtr 12' im Skript fuer 60s Wartezeit.
     pause
     exit /b
 )
@@ -62,4 +76,23 @@ timeout /t 5 >nul
 :: Auto-Browser     => im app-modus  =>  start chrome --app=http://localhost:3000/html/start.html    ||     start msedge --app=http://localhost:3000/html/start.html
 start http://localhost:3000/html/start.html
 
-pause
+
+:: NEW: Interactive closeup
+
+echo --------------------------
+echo [SUCCESS] Anwendung laeuft!
+echo --------------------------
+
+set /p cleanup="Docker-Container beim Schließen stoppen? (Y/N): "
+if /i "%cleanup%"=="Y" goto do_cleanup
+if /i "%cleanup%"=="J" goto do_cleanup
+
+echo [INFO] Container laufen im Hintergrund weiter
+goto end
+
+:do_cleanup
+echo [INFO] Stoppe Container...
+docker compose down
+
+:end
+timeout /t 3 >nul

@@ -12,13 +12,6 @@ Dieses Projekt wurde im Rahmen meiner Ausbildung zum Informatiker zu Übungszwec
 
 ---
 
-## Neuerungen:  (v1.3.1)
-* **CI/CD Pipeline:** Automatisierte GitHub Actions zur Überprüfung der Code-Qualität und Build-Stabilität.
-* **Auto-Maintenance (Watchtower)**: Integration von Watchtower zur automatischen Aktualisierung von MongoDB-Container.
-* **Security & Quality:** Automatisierter `npm audit` und `npm ci` bei jedem Push, um Sicherheitslücken in Dependencies zu vermeiden.
-* **Automatisierung:** Neues Windows-Start-Skript. Ein Feature um Docker automatisch zu starten, die Container zu bauen und den Browser zu öffnen ("One-Click Start").
-
----
 
 ## Quick Start (Dockerized)
 
@@ -34,7 +27,24 @@ Dank Docker ist keine lokale Installation von Node.js oder MongoDB erforderlich.
     ```
 4. Im Browser unter `http://localhost:3000/html/start.html` zugreifen
 
+---
 
+### Performance-Tipp (Windows / WSL2 RAM-Begrenzung)
+
+Da Docker Desktop unter Windows das WSL2-Backend nutzt, kann es vorkommen, dass der vmmem-Prozess sehr viel Arbeitsspeicher (RAM) bei Bedarf beansprucht. (Früher 50%, mittlerweile 8GB)
+Um die Ressourcen-Nutzung deines PCs zu deckeln, wird empfohlen, eine globale Konfigurationsdatei anzulegen:
+
+1. Drücke `Win + R`, gib `%USERPROFILE%` ein und drücke Enter.
+2. Erstelle in diesem Ordner, falls nicht bereits Vorhanden eine Datei namens `.wslconfig` ( OHNE Dateiendung).
+3. Füge folgenden Inhalt ein, um WSL2 beispielsweise auf 4 GB RAM zu begrenzen:
+
+```ini
+[wsl2]
+memory=4GB   # Begrenzt den RAM für Docker/WSL2
+processors=2 # Begrenzt die genutzten CPU-Kerne
+
+```
+4. Starte danach WSL bzw. Docker einmal neu (Terminal: wsl --shutdown).
 ---
 
 **Frontend**
@@ -165,15 +175,6 @@ This project was created for educational purposes as part of my computer science
 
 
 
-
-
----
-
-##  Recent Updates: (v1.2.1)
-* **Dependency Management:** Integrated GitHub Dependabot for automated weekly security audits.
-* **Request Logging:** Custom middleware for logging HTTP requests (Method, URL, Timestamp) directly to the console.
-* **Enhanced Health Monitoring:** Added Express App healthchecks via `curl` (including `curl` installation in Dockerfile).
-
 ---
 
 ## Quick Start (Dockerized)
@@ -194,6 +195,27 @@ Thanks to Docker, no local installation of Node.js or MongoDB is required.
     ```bash
     docker-compose up --build -d
     ```
+
+---
+
+###  Performance Tip (Windows / WSL2 RAM Limitation)
+
+Since Docker Desktop on Windows utilizes the WSL2 backend, the `vmmem` process can consume a large amount of RAM when needed. (Previously capped at 50% of host RAM, now standardly limited to 8GB).
+
+To cap the resource usage on your PC, it is highly recommended to create a global configuration file:
+
+1. Press `Win + R`, type `%USERPROFILE%` and hit Enter.
+2. Inside this folder, create a file named `.wslconfig` (make sure it has **NO** file extension like `.txt`).
+3. Insert the following content to limit WSL2 (for example, to 4 GB of RAM and 2 CPU cores):
+
+```ini
+[wsl2]
+memory=4GB   # Limits RAM for Docker/WSL2
+processors=2 # Limits the number of utilized CPU cores
+
+```
+4. Afterwards, restart WSL and Docker to apply the changes (run wsl --shutdown in your terminal).
+
 
 ---
 
