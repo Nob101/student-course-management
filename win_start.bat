@@ -46,9 +46,9 @@ set /a counter=0
 :wait_loop
 set /a counter+=1
 
-:: Abbruch nach 6 Versuchen (30 Sekunden)
-if %counter% gtr 6 (
-    echo [ERROR] Docker Engine konnte nicht zeitnah gestartet werden. Limit: 30s
+:: Abbruch nach 12 Versuchen (60 Sekunden)
+if %counter% gtr 12 (
+    echo [ERROR] Docker Engine konnte nicht zeitnah gestartet werden.
     echo [INFO] Aendere 'gtr 6' zu 'gtr 12' im Skript fuer 60s Wartezeit.
     pause
     exit /b
@@ -76,23 +76,10 @@ timeout /t 5 >nul
 :: Auto-Browser     => im app-modus  =>  start chrome --app=http://localhost:3000/html/start.html    ||     start msedge --app=http://localhost:3000/html/start.html
 start http://localhost:3000/html/start.html
 
-
-:: NEW: Interactive closeup
-
 echo --------------------------
 echo [SUCCESS] Anwendung laeuft!
+echo [INFO] Container laufen im Hintergrund weiter
 echo --------------------------
 
-set /p cleanup="Docker-Container beim Schließen stoppen? (Y/N): "
-if /i "%cleanup%"=="Y" goto do_cleanup
-if /i "%cleanup%"=="J" goto do_cleanup
 
-echo [INFO] Container laufen im Hintergrund weiter
-goto end
-
-:do_cleanup
-echo [INFO] Stoppe Container...
-docker compose down
-
-:end
-timeout /t 3 >nul
+timeout /t 5 >nul

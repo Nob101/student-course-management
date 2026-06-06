@@ -25,7 +25,9 @@ Dank Docker ist keine lokale Installation von Node.js oder MongoDB erforderlich.
     ```bash
     docker-compose up --build -d
     ```
-4. Im Browser unter `http://localhost:3000/html/start.html` zugreifen
+
+4. Im **Browser** unter `http://localhost:3000/html/start.html` zugreifen oder
+   das Script ``win_start.bat`` im Terminal ausführen. (Öffnet den Standardbrowser und öffnet die HTML-Seite direkt)
 
 ---
 
@@ -195,6 +197,9 @@ Thanks to Docker, no local installation of Node.js or MongoDB is required.
     ```bash
     docker-compose up --build -d
     ```
+
+4. **Access in your browser:** `http://localhost:3000/html/start.html` or
+   run the script ``win_start.bat`` in the terminal. (Opens the default browser togehter w/ the HTML page directly)
 
 ---
 
