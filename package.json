@@ -16,7 +16,7 @@
     "mongoose": "^9.10.4"
   },
   "devDependencies": {
-    "nodemon": "^1.14.10"
+    "nodemon": "^1.19.4"
   },
   "overrides": {
     "minimatch": "^10.2.1"
