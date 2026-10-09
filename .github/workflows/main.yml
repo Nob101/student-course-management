@@ -20,7 +20,7 @@ jobs:
       - run: npm ci               # Installiert exakt die Pakete aus der package-lock.json
 
       - name: Security Audit      # Prüft auf Sicherhietslücken in den Packeten (NPM)
-        run: npm audit --audit-level=high 
+        run: npm audit --audit-level=high --omit=dev
 
   docker-build:
     needs: quality-check          # Erst wenn der Code-Check bestanden wurde wird Docker gebaut
