@@ -16,11 +16,13 @@
     "mongoose": "^9.10.4"
   },
   "devDependencies": {
-    "nodemon": "^1.19.4"
+    "nodemon": "^3.1.14"
   },
   "overrides": {
     "minimatch": "^10.2.1",
-    "braces": "^3.0.3"
+    "braces": "^3.0.3",
+    "got": "^11.8.5",
+    "cross-spawn": "^7.0.5"
   },
   "allowScripts": {
     "bcrypt@6.0.0": true
