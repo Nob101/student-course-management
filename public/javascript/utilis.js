@@ -14,7 +14,7 @@ export const  createTemplate = (value, type, isDashboard = false) => {
 
 
     const valueId = value._id || value.id;
-// Wenn schueler
+    // Wenn schueler
     if (type === 'schueler') {
         const style = isDashboard ? 'style="list-style: none; margin-bottom: 8px; font-size: 0.9rem;"' : '';
         return `

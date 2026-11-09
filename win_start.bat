@@ -46,10 +46,10 @@ set /a counter=0
 :wait_loop
 set /a counter+=1
 
-:: Abbruch nach 12 Versuchen (60 Sekunden)
-if %counter% gtr 12 (
+:: Abbruch nach 12 Versuchen (90 Sekunden)
+if %counter% gtr 18 (
     echo [ERROR] Docker Engine konnte nicht zeitnah gestartet werden.
-    echo [INFO] Aendere 'gtr 6' zu 'gtr 12' im Skript fuer 60s Wartezeit.
+    echo [INFO] Aendere 'gtr 12' zu 'gtr 24' im Skript fuer 120s Wartezeit.
     pause
     exit /b
 )

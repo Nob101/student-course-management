@@ -78,6 +78,8 @@ services:
       - WATCHTOWER_CLEANUP=true
         # Wichtig: Nur Container mit dem speziellen Label updaten
       - WATCHTOWER_LABEL_ENABLE=true
+        # NEW: forcing Watchtower to use minimum v
+      - DOCKER_API_VERSION=1.40
     restart: unless-stopped    # automatischer Neustart (außer manuell)
 
     logging: *logging-config
