@@ -8,7 +8,7 @@ const Schueler = require('../models/schueler');
 function KursDao(){
    
 }
-// Alle Kurse inkl Schueler
+// Returns all courses and enrolled students
 KursDao.prototype.getAll = async function(){
     
     return await Kurs.find().populate('schueler');

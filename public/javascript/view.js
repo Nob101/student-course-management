@@ -174,7 +174,8 @@ renderTeilnehmer(schuelerName, kursNamen) {
         }
     },
 
-    // NEU: Global Helper für messageDisplay aber in main.js DOM Abhängigkeit
+    // NEW: Global helper for messageDisplay (DOM dependency in main.js)
+    
     showStatus(message, color ) {
         const delay = 2000;
         const display = document.getElementById('enroll-message');
