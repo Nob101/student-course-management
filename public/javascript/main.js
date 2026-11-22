@@ -129,8 +129,6 @@ function initSetup() {
         const kursOption = document.querySelector(`#kurs-options option[value="${kursName}"]`);
 
            
-
-            // NEU: Alert weg  -> messageDspl weg -> showStatus !!
             if (!schuelerOption || !kursOption) {
                renderView.showStatus(" Bitte Namen aus der Liste  wählen!", "orange");
                     return;
@@ -141,7 +139,6 @@ function initSetup() {
 
         const response = await apiService.enroll( kursId, schuelerId);
         
-
         if (response.ok){
             renderView.showStatus("  Erfolgreich eingeschrieben!", "green");
         
